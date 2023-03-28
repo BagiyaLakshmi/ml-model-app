@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="static/login.css" rel="stylesheet"/>
+	<title>Login Page</title>
+</head>
+<body id="b" background="static/login.jpg">
+	{% if error %}
+		<p>{{ error }}</p>
+	{% endif %}
+	<form action="/auth" method="POST">
+		<label>Username:</label>
+		<br>
+		<input type="text" name="username"><br>
+		<label>Password:</label>
+		<br>
+		<input type="password" name="password"><br>
+		<input type="submit" value="Login">
+	</form>
+</body>
+</html>
