@@ -12,16 +12,26 @@ Source: https://stackoverflow.com/questions/24272223/importerror-no-module-named
 
 # dependencies
 import mysql.connector  
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
   
 
 # my connection
 myconn = mysql.connector.connect(host = "localhost", 
-                                 user = "bagiya",
-                                 passwd = "Bagiya@05", 
-                                 database = "mlmodel")  
+                                 user = os.environ.get('USER_NAME'),
+                                 passwd = os.environ.get('PASSWORD'), 
+                                 database = os.environ.get('DB_NAME')
+                                 )  
   
 #printing the connection object   
 # print(myconn)  
+
+# user = os.environ.get('USER_NAME')
+# print(user)
 
 mycursor = myconn.cursor()
 
@@ -30,6 +40,7 @@ def getcredentials(user, password):
     
     query = "SELECT * FROM Login WHERE user = %s AND password = %s"
     values = (user, password)
+
 
     mycursor.execute(query, values)
     result = mycursor.fetchone()

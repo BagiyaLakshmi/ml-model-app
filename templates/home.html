@@ -4,6 +4,25 @@
 	<title>Home Page</title>
 </head>
 <body>
-	<h1>Welcome!</h1>
+	<link href="{{ url_for('static', filename='css/login.css') }} " rel="stylesheet">
+
+	<form action="/predict" method="POST">
+		<p><input type="text" placeholder="Per capita crime rate by town" name="CRIM" ></p>
+		<p><input type="text" placeholder="Proportion of residential land zoned" name="ZN" ></p>
+		<p><input type="text" placeholder="Proportion of non-retail business" name="INDUS" ></p>
+		<p><input type="text" placeholder="CHAS" name="CHAS" ></p>
+		<p><input type="text" placeholder="Nitric oxides concentration" name="NOX" ></p>
+		<p><input type="text" placeholder="Average number of rooms" name="RM" ></p>
+		<p><input type="text" placeholder="Age" name="AGE" ></p>
+		<p><input type="text" placeholder="Weighted distances" name="DIS" ></p>
+		<p><input type="text" placeholder="Index of accessibility to radial highways" name="RAD" ></p>
+		<p><input type="text" placeholder="Tax" name="TAX" ></p>
+		<p><input type="text" placeholder="Pupil-teacher ratio" name="PTRATIO" ></p>
+		<p><input type="text" placeholder="Bk proportion" name="B" ></p>
+		<p><input type="text" placeholder="Lower status" name="LSTAT" ></p>
+
+		<p><input type="submit"></p>
+		</form>
+	
 </body>
 </html>

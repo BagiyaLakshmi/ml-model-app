@@ -1,26 +1,23 @@
 '''
-Created on 
+Created on : Mar 27, 2023
 
-Course work: Mar 27, 2023
+Course work : Flask & ml-model
 
 @author: 
     Bagiya
 
 Source:
 '''
-
-
 from flask import Flask, render_template, request
-import mysql.connector
-
+import pickle
 import db_config as dbc
 
 app = Flask(__name__)
 
 # configure MySQL database connection
 
-mydb = mysql.connector.connect(host = "localhost", user = "bagiya",passwd = "Bagiya@05", database = "mlmodel")  
 
+model = pickle.load(open('model.pkl','rb'))
 
 @app.route('/')
 def login():
@@ -39,6 +36,18 @@ def auth():
     else:
         # if the username and password are not valid, redirect back to the login page
         return render_template('login.html', error='Invalid username or password')
+
+@app.route("/predict", methods=['post'])
+def pred():
+    features= [float(i) 
+                for i in 
+                (request.form.values())]
+    pred = model.predict([(features)])
+    # pred = round(pred[0],2)
+    pred = str(pred)
+    pred=pred[1:-1]
+    return render_template("success.html",
+                           data=pred)
 
 
 if __name__ == '__main__':
