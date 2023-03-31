@@ -18,4 +18,7 @@
 conda activate py39 
 
 ```
+
+```
 python app.py
+```
