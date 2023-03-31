@@ -12,3 +12,10 @@
 
 ![image](images/output.png)
 
+## To run the file 
+
+```
+conda activate py39 
+
+```
+python app.py
