@@ -16,7 +16,6 @@
 
 ```
 conda activate py39 
-
 ```
 
 ```
