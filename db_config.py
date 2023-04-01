@@ -1,7 +1,7 @@
 '''
-Created on 
+Created on : Mar 27, 2023
 
-Course work: Mar 27, 2023
+Course work : Flask & ml
 
 @author: 
     Bagiya
@@ -21,10 +21,10 @@ load_dotenv()
   
 
 # my connection
-myconn = mysql.connector.connect(host = "localhost", 
-                                 user = os.environ.get('USER_NAME'),
-                                 passwd = os.environ.get('PASSWORD'), 
-                                 database = os.environ.get('DB_NAME')
+myconn = mysql.connector.connect(host       = "localhost", 
+                                 user       = os.environ.get('USER_NAME'),
+                                 passwd     = os.environ.get('PASSWORD'), 
+                                 database   = os.environ.get('DB_NAME')
                                  )  
   
 #printing the connection object   
@@ -38,12 +38,12 @@ mycursor = myconn.cursor()
 
 def getcredentials(user, password):
     
-    query = "SELECT * FROM Login WHERE user = %s AND password = %s"
-    values = (user, password)
+    query   = "SELECT * FROM Login WHERE user = %s AND password = %s"
+    values  = (user, password)
 
 
     mycursor.execute(query, values)
-    result = mycursor.fetchone()
+    result  = mycursor.fetchone()
     print(result)
     if result:
         return True 

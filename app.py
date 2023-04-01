@@ -43,9 +43,8 @@ def pred():
                 for i in 
                 (request.form.values())]
     pred = model.predict([(features)])
-    # pred = round(pred[0],2)
     pred = str(pred)
-    pred=pred[1:-1]
+    pred = pred[1:-1]
     return render_template("success.html",
                            data=pred)
 
